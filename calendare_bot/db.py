@@ -22,10 +22,13 @@ def get_events():
         if time.year == now.year and time.month == now.month and time.day == now.day:
             ok_date.append(i)
 
+    res = []
     for i in ok_date:
         cursor.execute('SELECT description FROM cal_event WHERE start_time = ?', (i))
+        cu = cursor.fetchall()
+        for c in cu:
+            res.append(c)
 
-    res = cursor.fetchall()
     connection.close()
     return res
 
