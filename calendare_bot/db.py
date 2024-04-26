@@ -1,6 +1,7 @@
 import sqlite3
 import datetime
 
+
 def get_events():
     now = datetime.datetime.now()
     connection = sqlite3.connect("../db.sqlite3")
@@ -31,6 +32,7 @@ def get_events():
 
     connection.close()
     return res
+
 
 def get_by_day(now: datetime):
     connection = sqlite3.connect("../db.sqlite3")
